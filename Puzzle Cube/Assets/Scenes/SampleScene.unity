@@ -180,7 +180,6 @@ GameObject:
   - component: {fileID: 157186116}
   - component: {fileID: 157186119}
   - component: {fileID: 157186118}
-  - component: {fileID: 157186117}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -203,27 +202,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 602824612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &157186117
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157186115}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &157186118
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -311,7 +289,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.058333326, g: 0.05, b: 0.1, a: 0}
+  m_BackGroundColor: {r: 0.03125001, g: 0.025, b: 0.1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -539,6 +517,9 @@ GameObject:
   m_Component:
   - component: {fileID: 602824612}
   - component: {fileID: 602824611}
+  - component: {fileID: 602824615}
+  - component: {fileID: 602824613}
+  - component: {fileID: 602824614}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -559,6 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displacement: 1
+  forceJump: 5
 --- !u!4 &602824612
 Transform:
   m_ObjectHideFlags: 0
@@ -568,13 +550,73 @@ Transform:
   m_GameObject: {fileID: 602824610}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 157186116}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &602824613
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602824610}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.75, y: 0.75, z: 0.75}
+  m_Center: {x: 0, y: -0.125, z: 0}
+--- !u!54 &602824614
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602824610}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &602824615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602824610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef090bef36d5a6146b80d46e987bf93e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 8
+  initPlayerPosition: {x: 0, y: 0}
+  lake: {fileID: 4469557564456557879, guid: 25efa5fc549418f458990aee7bfa8956, type: 3}
   tile_01: {fileID: 2049239004630778018, guid: dea88946684082442bb774ed42397f13, type: 3}
 --- !u!4 &1299999314
 Transform:

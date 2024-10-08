@@ -5,6 +5,7 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     public float displacement;
+    public float forceJump;
 
     void Start()
     {
@@ -18,6 +19,8 @@ public class Move : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.S)) XMove(-1);
         if(Input.GetKeyDown(KeyCode.A)) ZMove(1);
         if(Input.GetKeyDown(KeyCode.D)) ZMove(-1);
+
+        if(Input.GetKeyDown(KeyCode.Space)) Jump();
     }
 
     private void ZMove(int _direction)
@@ -33,5 +36,10 @@ public class Move : MonoBehaviour
     private void MoveInPlane(Vector3 _displace)
     {
         transform.position += _displace;
+    }
+
+    private void Jump()
+    {
+        GetComponent<Rigidbody>().AddForce(Vector3.up*forceJump, ForceMode.Impulse);
     }
 }

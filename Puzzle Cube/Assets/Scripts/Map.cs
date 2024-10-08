@@ -8,6 +8,7 @@ public class Map : MonoBehaviour
     public int size;
     public Vector2 initPlayerPosition;
 
+    public GameObject lake;
     public GameObject tile_01;
 
     void Start()
@@ -18,7 +19,7 @@ public class Map : MonoBehaviour
 
     private void InitMap()
     {
-        
+        Instantiate(lake).transform.localScale = new Vector3(size+1, 1,size+1);
         int tileZposition = size/2;
         for(int i = 0; i < size; i++)
         {
@@ -30,6 +31,8 @@ public class Map : MonoBehaviour
             }
             tileZposition--;
         }
+
+        GameObject.Find("Player").transform.position = new Vector3(initPlayerPosition.x, 1, initPlayerPosition.y);
     }
 
     private void AddZero()
@@ -38,7 +41,7 @@ public class Map : MonoBehaviour
         {
             for(int j = 0; j < size; j++)
             {
-                tiles[i, j] = 0;
+                tiles[i, j] = 1;
             }
         }
     }
@@ -48,6 +51,8 @@ public class Map : MonoBehaviour
         size = 8;
         tiles = new int[size, size];
         AddZero();
+        initPlayerPosition = new Vector2(0, 1);
+
 
         //Tiles Map
         tiles[3, 0] = 1;
