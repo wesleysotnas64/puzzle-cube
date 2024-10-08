@@ -539,8 +539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b4665b132f8844f99ee05159d1e876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displacement: 1
-  forceJump: 3
+  jumpEnabled: 0
+  forceJump: 3.25
   direction: {x: 0, y: 0, z: 0}
 --- !u!4 &602824612
 Transform:

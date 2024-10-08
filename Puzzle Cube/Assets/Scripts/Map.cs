@@ -13,13 +13,17 @@ public class Map : MonoBehaviour
 
     void Start()
     {
-        Map_001();
+        Map_003();
+        // Map_Test();
         InitMap();
     }
 
     private void InitMap()
     {
-        Instantiate(lake).transform.localScale = new Vector3(size+1, 1,size+1);
+        GameObject lakeInstant = Instantiate(lake);
+        lakeInstant.transform.localScale = new Vector3(size+4, 1,size+4);
+        lakeInstant.transform.position = new Vector3(0, lakeInstant.transform.position.y, 0);
+
         int tileZposition = size/2;
         for(int i = 0; i < size; i++)
         {
@@ -41,27 +45,87 @@ public class Map : MonoBehaviour
         {
             for(int j = 0; j < size; j++)
             {
-                tiles[i, j] = 1;
+                tiles[i, j] = 0;
             }
         }
     }
 
-    private void Map_001()
+    private void Map_Test()
     {
-        size = 8;
+        size = 3;
         tiles = new int[size, size];
         AddZero();
-        initPlayerPosition = new Vector2(0, 1);
+        initPlayerPosition = new Vector2(-1, 1);
 
 
         //Tiles Map
-        tiles[3, 0] = 1;
+        tiles[0, 0] = 1;
+        tiles[2, 2] = 1;
+        
+    }
+
+    private void Map_001()
+    {
+        size = 5;
+        tiles = new int[size, size];
+        AddZero();
+        initPlayerPosition = new Vector2(-2, 0);
+
+
+        //Tiles Map
+        tiles[2, 0] = 1;
+        tiles[2, 1] = 1;
+        tiles[2, 2] = 1;
+        tiles[2, 3] = 1;
+        tiles[2, 4] = 1;
+    }
+
+    private void Map_002()
+    {
+        size = 5;
+        tiles = new int[size, size];
+        AddZero();
+        initPlayerPosition = new Vector2(-2, -2);
+
+
+        //Tiles Map
+        tiles[4, 0] = 1;
+        tiles[4, 1] = 1;
         tiles[3, 1] = 1;
         tiles[3, 2] = 1;
-        tiles[3, 3] = 1;
+        tiles[2, 2] = 1;
+        tiles[1, 2] = 1;
+        tiles[0, 2] = 1;
+        tiles[0, 3] = 1;
+        tiles[0, 4] = 1;
+    }
+
+    private void Map_003()
+    {
+        size = 5;
+        tiles = new int[size, size];
+        AddZero();
+        initPlayerPosition = new Vector2(-2, 2);
+
+
+        //Tiles Map
+        tiles[0, 0] = 1;
+        tiles[0, 1] = 1;
+        tiles[0, 2] = 1;
+        tiles[0, 3] = 1;
+        tiles[0, 4] = 1;
+        tiles[1, 4] = 1;
+        tiles[2, 4] = 1;
         tiles[3, 4] = 1;
-        tiles[3, 5] = 1;
-        tiles[3, 6] = 1;
-        tiles[3, 7] = 1;
+        tiles[4, 4] = 1;
+        tiles[4, 3] = 1;
+        tiles[4, 2] = 1;
+        tiles[4, 1] = 1;
+        tiles[4, 0] = 1;
+        tiles[3, 0] = 1;
+        tiles[2, 0] = 1;
+        tiles[2, 1] = 1;
+        tiles[2, 2] = 1;
+        
     }
 }

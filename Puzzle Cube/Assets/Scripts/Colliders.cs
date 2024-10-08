@@ -13,5 +13,6 @@ public class Colliders : MonoBehaviour
     {
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         transform.position = other.transform.position + new Vector3(0, 0.25f, 0);
+        GetComponent<Move>().jumpEnabled = true;
     }
 }

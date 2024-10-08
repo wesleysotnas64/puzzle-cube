@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    public float displacement;
+    public bool jumpEnabled;
     public float forceJump;
     public Vector3 direction;
 
     void Start()
     {
-        
+        jumpEnabled = false;
     }
 
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W)) XMove(1);
-        if(Input.GetKeyDown(KeyCode.S)) XMove(-1);
-        if(Input.GetKeyDown(KeyCode.A)) ZMove(1);
-        if(Input.GetKeyDown(KeyCode.D)) ZMove(-1);
+        if(jumpEnabled)
+        {
+            if(Input.GetKeyDown(KeyCode.E)) XMove(1);
+            if(Input.GetKeyDown(KeyCode.S)) XMove(-1);
+            if(Input.GetKeyDown(KeyCode.W)) ZMove(1);
+            if(Input.GetKeyDown(KeyCode.D)) ZMove(-1);
+        }
     }
 
 
@@ -37,6 +40,7 @@ public class Move : MonoBehaviour
 
     private void Jump()
     {
+        jumpEnabled = false;
         direction.Normalize();
         GetComponent<Rigidbody>().AddForce(direction*forceJump, ForceMode.Impulse);
     }
