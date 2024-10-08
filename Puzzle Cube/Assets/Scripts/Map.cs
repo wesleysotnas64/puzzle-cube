@@ -13,7 +13,7 @@ public class Map : MonoBehaviour
 
     void Start()
     {
-        Map_003();
+        Map_004();
         // Map_Test();
         InitMap();
     }
@@ -127,5 +127,26 @@ public class Map : MonoBehaviour
         tiles[2, 1] = 1;
         tiles[2, 2] = 1;
         
+    }
+
+    private void Map_004()
+    {
+        size = 5;
+        tiles = new int[size, size];
+        AddZero();
+        initPlayerPosition = new Vector2(-2, -1);
+
+
+        //Tiles Map
+        tiles[3, 0] = 1;
+        tiles[2, 0] = 1;
+        tiles[2, 1] = 1;
+        tiles[3, 1] = 1;
+        tiles[3, 2] = 1;
+        tiles[2, 2] = 1;
+        tiles[2, 3] = 1;
+        tiles[3, 3] = 1;
+        tiles[3, 4] = 1;
+        tiles[2, 4] = 1;
     }
 }
