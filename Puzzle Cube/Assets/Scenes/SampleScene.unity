@@ -540,7 +540,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displacement: 1
-  forceJump: 5
+  forceJump: 3
+  direction: {x: 0, y: 0, z: 0}
 --- !u!4 &602824612
 Transform:
   m_ObjectHideFlags: 0
