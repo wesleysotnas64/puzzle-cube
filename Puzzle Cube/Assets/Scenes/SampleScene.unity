@@ -551,7 +551,7 @@ Transform:
   m_GameObject: {fileID: 602824610}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 2, y: 1, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -700,6 +700,10 @@ MonoBehaviour:
   initPlayerPosition: {x: 0, y: 0}
   lake: {fileID: 4469557564456557879, guid: 25efa5fc549418f458990aee7bfa8956, type: 3}
   tile_01: {fileID: 2049239004630778018, guid: dea88946684082442bb774ed42397f13, type: 3}
+  lotusFlowerSmall: {fileID: 864502807995241519, guid: 5f62386da24830b40a6fbab6a01a0286,
+    type: 3}
+  lotusFlowerBig: {fileID: 864502807995241519, guid: d8302fb7d0e593d4b82db4fc1b6ac336,
+    type: 3}
 --- !u!4 &1299999314
 Transform:
   m_ObjectHideFlags: 0

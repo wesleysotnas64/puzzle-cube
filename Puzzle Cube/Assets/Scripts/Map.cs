@@ -4,16 +4,42 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
+    public int mapId;
     public int[,] tiles;
     public int size;
     public Vector2 initPlayerPosition;
 
+    
     public GameObject lake;
-    public GameObject tile_01;
+    public GameObject tile_01; // 1
+    public GameObject lotusFlowerSmall; // 101
+    public GameObject lotusFlowerBig; // 102
 
     void Start()
     {
-        Map_004();
+        switch (mapId)
+        {
+            case 1:
+                Map_001();
+                break;
+
+            case 2:
+                Map_002();
+                break;
+
+            case 3:
+                Map_003();
+                break;
+
+            case 4:
+                Map_004();
+                break;
+
+            default:
+                Map_Test();
+                break;
+        }
+        
         // Map_Test();
         InitMap();
     }
@@ -30,7 +56,23 @@ public class Map : MonoBehaviour
             int tileXposition = -size/2;
             for(int j = 0; j < size; j++)
             {
-                if(tiles[i, j] == 1) Instantiate(tile_01).transform.position += new Vector3(tileXposition, 0, tileZposition);
+                switch(tiles[i, j])
+                {
+                    case 1: 
+                        Instantiate(tile_01).transform.position += new Vector3(tileXposition, 0, tileZposition);
+                        break;
+
+                    case 101:
+                        Instantiate(lotusFlowerSmall).transform.position += new Vector3(tileXposition, 0, tileZposition);
+                        break;
+
+                    case 102:
+                        Instantiate(lotusFlowerBig).transform.position += new Vector3(tileXposition, 0, tileZposition);
+                        break;
+
+                    default:
+                        break;
+                }
                 tileXposition++;
             }
             tileZposition--;
@@ -52,15 +94,27 @@ public class Map : MonoBehaviour
 
     private void Map_Test()
     {
-        size = 3;
+        size = 5;
         tiles = new int[size, size];
         AddZero();
-        initPlayerPosition = new Vector2(-1, 1);
+        initPlayerPosition = new Vector2(0, 0);
 
 
         //Tiles Map
-        tiles[0, 0] = 1;
+        tiles[2, 1] = 1;
         tiles[2, 2] = 1;
+        tiles[2, 3] = 1;
+        tiles[1, 2] = 1;
+        tiles[3, 2] = 1;
+        tiles[0, 1] = 1;
+        tiles[1, 0] = 1;
+        tiles[1, 1] = 1;
+
+        //Objetos
+        tiles[0, 0] = 101;
+        tiles[4, 4] = 102;
+
+        
         
     }
 
@@ -78,6 +132,11 @@ public class Map : MonoBehaviour
         tiles[2, 2] = 1;
         tiles[2, 3] = 1;
         tiles[2, 4] = 1;
+
+        //Objetos
+        tiles[0, 0] = 101;
+        tiles[1, 4] = 101;
+        tiles[3, 4] = 101;
     }
 
     private void Map_002()
@@ -98,6 +157,11 @@ public class Map : MonoBehaviour
         tiles[0, 2] = 1;
         tiles[0, 3] = 1;
         tiles[0, 4] = 1;
+
+        //Objetos
+        tiles[0, 1] = 101;
+        tiles[2, 4] = 101;
+        tiles[3, 0] = 101;
     }
 
     private void Map_003()
@@ -126,6 +190,11 @@ public class Map : MonoBehaviour
         tiles[2, 0] = 1;
         tiles[2, 1] = 1;
         tiles[2, 2] = 1;
+
+        //Objetos
+        tiles[1, 2] = 101;
+        tiles[2, 3] = 101;
+        tiles[3, 2] = 101;
         
     }
 
@@ -148,5 +217,10 @@ public class Map : MonoBehaviour
         tiles[3, 3] = 1;
         tiles[3, 4] = 1;
         tiles[2, 4] = 1;
+
+        //Objetos
+        tiles[0, 4] = 102;
+        tiles[1, 2] = 101;
+        tiles[4, 0] = 101;
     }
 }
