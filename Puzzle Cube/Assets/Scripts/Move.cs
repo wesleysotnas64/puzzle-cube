@@ -18,10 +18,10 @@ public class Move : MonoBehaviour
     {
         if(jumpEnabled)
         {
-            if(Input.GetKeyDown(KeyCode.E)) XMove(1);
-            if(Input.GetKeyDown(KeyCode.S)) XMove(-1);
-            if(Input.GetKeyDown(KeyCode.W)) ZMove(1);
-            if(Input.GetKeyDown(KeyCode.D)) ZMove(-1);
+            if(Input.GetKeyDown(KeyCode.R)) XMove(1);
+            if(Input.GetKeyDown(KeyCode.D)) XMove(-1);
+            if(Input.GetKeyDown(KeyCode.E)) ZMove(1);
+            if(Input.GetKeyDown(KeyCode.F)) ZMove(-1);
         }
     }
 

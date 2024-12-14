@@ -265,6 +265,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lake
       objectReference: {fileID: 0}
+    - target: {fileID: 4469557564456557879, guid: 25efa5fc549418f458990aee7bfa8956,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7958005830264951544, guid: 25efa5fc549418f458990aee7bfa8956,
         type: 3}
       propertyPath: m_LocalScale.x
